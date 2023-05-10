@@ -1,39 +1,41 @@
 import { useState } from "react";
 import { Container, Form, FormControl, ListGroup } from "react-bootstrap";
-import './App.css';
 
-const fruits = [
-  { name: "Banana" },
-  { name: "Apple" },
-  { name: "Orange" },
-  { name: "Strawberry" },
-  { name: "Grape" },
-  { name: "Kiwi" },
-  { name: "Mango" },
-  { name: "Pineapple" },
-  { name: "Watermelon" },
+const disciplines = [
+  { name: "Calculus", code: "MAT101", professor: "John Doe", capacity: 30 },
+  { name: "Physics", code: "PHY101", professor: "Jane Smith", capacity: 25 },
+  { name: "Computer Science", code: "CSC101", professor: "Bob Johnson", capacity: 20 },
+  { name: "History", code: "HIS101", professor: "Alice Williams", capacity: 35 },
+  { name: "Chemistry", code: "CHE101", professor: "Mark Brown", capacity: 30 },
+  { name: "Biology", code: "BIO101", professor: "Karen Davis", capacity: 25 },
+  { name: "Geography", code: "GEO101", professor: "Tom Wilson", capacity: 20 },
+  { name: "Literature", code: "LIT101", professor: "Samantha Lee", capacity: 35 },
+  { name: "Art", code: "ART101", professor: "David King", capacity: 30 },
 ];
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [fruitsPerPage] = useState(3);
+  const [disciplinesPerPage] = useState(3);
 
   // Filtro
-  const filteredFruits = fruits.filter((fruit) =>
-    fruit.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredDisciplines = disciplines.filter((discipline) =>
+    discipline.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Paginação
-  const indexOfLastFruit = currentPage * fruitsPerPage;
-  const indexOfFirstFruit = indexOfLastFruit - fruitsPerPage;
-  const currentFruits = filteredFruits.slice(indexOfFirstFruit, indexOfLastFruit);
+  const indexOfLastDiscipline = currentPage * disciplinesPerPage;
+  const indexOfFirstDiscipline = indexOfLastDiscipline - disciplinesPerPage;
+  const currentDisciplines = filteredDisciplines.slice(
+    indexOfFirstDiscipline,
+    indexOfLastDiscipline
+  );
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Container className="mt-4">
-      <h1>Fruit List</h1>
+      <h1>Discipline List</h1>
 
       <Form className="mb-3">
         <FormControl
@@ -45,14 +47,17 @@ const App = () => {
       </Form>
 
       <ListGroup>
-        {currentFruits.map((fruit, index) => (
-          <ListGroup.Item key={index}>{fruit.name}</ListGroup.Item>
+        {currentDisciplines.map((discipline) => (
+          <ListGroup.Item key={discipline.code}>
+            <span className="fw-bold">{discipline.name}</span> ({discipline.code}) -{" "}
+            Professor: {discipline.professor} - Capacity: {discipline.capacity}
+          </ListGroup.Item>
         ))}
       </ListGroup>
 
       <nav>
         <ul className="pagination">
-          {[...Array(Math.ceil(filteredFruits.length / fruitsPerPage)).keys()].map(
+          {[...Array(Math.ceil(filteredDisciplines.length / disciplinesPerPage)).keys()].map(
             (pageNumber) => (
               <li
                 key={pageNumber}
@@ -73,4 +78,3 @@ const App = () => {
 };
 
 export default App;
-
