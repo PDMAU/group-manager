@@ -1,16 +1,32 @@
 import { useState } from "react";
-import { Container, Form, FormControl, ListGroup } from "react-bootstrap";
+import { Container, Form, FormControl, Table } from "react-bootstrap";
+import './App.css';
 
 const disciplines = [
-  { name: "Calculus", code: "MAT101", professor: "John Doe", capacity: 30 },
-  { name: "Physics", code: "PHY101", professor: "Jane Smith", capacity: 25 },
-  { name: "Computer Science", code: "CSC101", professor: "Bob Johnson", capacity: 20 },
-  { name: "History", code: "HIS101", professor: "Alice Williams", capacity: 35 },
-  { name: "Chemistry", code: "CHE101", professor: "Mark Brown", capacity: 30 },
-  { name: "Biology", code: "BIO101", professor: "Karen Davis", capacity: 25 },
-  { name: "Geography", code: "GEO101", professor: "Tom Wilson", capacity: 20 },
-  { name: "Literature", code: "LIT101", professor: "Samantha Lee", capacity: 35 },
-  { name: "Art", code: "ART101", professor: "David King", capacity: 30 },
+  {
+    name: "Algorithms and Data Structures",
+    code: "COMP 123",
+    professor: "John Smith",
+    capacity: 50,
+  },
+  {
+    name: "Database Systems",
+    code: "COMP 456",
+    professor: "Jane Doe",
+    capacity: 40,
+  },
+  {
+    name: "Operating Systems",
+    code: "COMP 789",
+    professor: "Bob Johnson",
+    capacity: 30,
+  },
+  {
+    name: "Software Engineering",
+    code: "COMP 101",
+    professor: "Sarah Williams",
+    capacity: 60,
+  },
 ];
 
 const App = () => {
@@ -46,14 +62,26 @@ const App = () => {
         />
       </Form>
 
-      <ListGroup>
-        {currentDisciplines.map((discipline) => (
-          <ListGroup.Item key={discipline.code}>
-            <span className="fw-bold">{discipline.name}</span> ({discipline.code}) -{" "}
-            Professor: {discipline.professor} - Capacity: {discipline.capacity}
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Professor</th>
+            <th>Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentDisciplines.map((discipline) => (
+            <tr key={discipline.code}>
+              <td>{discipline.name}</td>
+              <td>{discipline.code}</td>
+              <td>{discipline.professor}</td>
+              <td>{discipline.capacity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
 
       <nav>
         <ul className="pagination">
