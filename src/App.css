@@ -1,48 +1,93 @@
-/* Estilos para o título */
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-/* Estilos para o campo de busca */
+/* Aplicar um estilo à área de pesquisa */
 .form-control {
-  font-size: 1.5rem;
+  background-color: #f2f2f2;
+  border-color: #d9d9d9;
 }
 
-/* Estilos para a lista de frutas */
+/* Estilo para a lista de disciplinas */
+.list-group {
+  background-color: #f2f2f2;
+  border-color: #d9d9d9;
+}
+
+/* Estilo para os itens da lista */
 .list-group-item {
-  font-size: 1.5rem;
-  border: none;
-  border-bottom: 1px solid #dee2e6;
+  background-color: #ffffff;
+  border-color: #d9d9d9;
+  box-shadow: 0px 0px 5px #d9d9d9;
+  margin-bottom: 10px;
 }
 
-/* Estilos para a página ativa na paginação */
-.page-item.active .page-link {
-  background-color: #007bff;
-  border-color: #007bff;
+/* Estilo para a área de paginação */
+.pagination {
+  margin-top: 10px;
 }
 
-/* Estilos para os botões da paginação */
+/* Estilo para os botões da paginação */
 .page-link {
-  color: #007bff;
-  font-size: 1.5rem;
+  background-color: #f2f2f2;
+  border-color: #d9d9d9;
+  color: #212121;
 }
 
-.page-link:hover {
-  color: #0056b3;
-  text-decoration: none;
-  background-color: #f8f9fa;
-  border-color: #dee2e6;
+/* Estilo para os botões ativos da paginação */
+.page-item.active .page-link {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  color: #212121;
 }
 
-.page-link:focus {
-  outline: none;
-  box-shadow: none;
+/* Centralizar a tabela */
+.table-container {
+  display: flex;
+  justify-content: center;
 }
 
-/* Estilos para o container */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+/* Estilos de Material Design */
+.table {
+  border-collapse: collapse;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.table th {
+  background-color: #1976d2;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+}
+
+.table td:first-child {
+  font-weight: 500;
+}
+
+/* Estilos personalizados */
+.table td.capacity {
+  font-size: 14px;
+  text-align: center;
+}
+
+.table td.actions {
+  text-align: center;
+}
+
+.table td.actions button {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.table td.actions button:hover {
+  background-color: #e0e0e0;
+}
+
+.table td.actions button i {
+  color: #1976d2;
 }
