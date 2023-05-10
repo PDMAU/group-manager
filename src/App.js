@@ -4,27 +4,27 @@ import './App.css';
 
 const disciplines = [
   {
-    name: "Algorithms and Data Structures",
-    code: "COMP 123",
-    professor: "John Smith",
+    name: "Projetos ",
+    code: "MC 855",
+    professor: "Licio",
     capacity: 50,
   },
   {
-    name: "Database Systems",
-    code: "COMP 456",
-    professor: "Jane Doe",
+    name: "Probabilidade",
+    code: "ME 312",
+    professor: "Amoras",
     capacity: 40,
   },
   {
-    name: "Operating Systems",
-    code: "COMP 789",
-    professor: "Bob Johnson",
-    capacity: 30,
+    name: "Calculo 3",
+    code: "MA 311",
+    professor: "Catto",
+    capacity: 120,
   },
   {
-    name: "Software Engineering",
-    code: "COMP 101",
-    professor: "Sarah Williams",
+    name: "Desenvolvimento Web",
+    code: "MC 666",
+    professor: "Chat GPT",
     capacity: 60,
   },
 ];
