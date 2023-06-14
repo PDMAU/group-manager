@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Form, FormControl, Table } from "react-bootstrap";
+import { Container, Form, FormControl, Table, Navbar, Nav } from "react-bootstrap";
 import './App.css';
 
 const disciplines = [
@@ -150,6 +150,27 @@ const App = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
+    <div>
+    <Navbar bg="dark" variant="dark" expand="md" sticky="top">
+      <Navbar.Brand href="#">Top navbar</Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarCollapse" />
+      <Navbar.Collapse id="navbarCollapse">
+        <Nav className="mr-auto">
+          <Nav.Link href="#">Home</Nav.Link>
+          <Nav.Link href="#">Link</Nav.Link>
+          <Nav.Link disabled href="#">Desativado</Nav.Link>
+        </Nav>
+        <Form inline>
+          <FormControl
+            type="text"
+            placeholder="Pesquisa"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Button variant="outline-success">Pesquisar</Button>
+        </Form>
+        </Navbar.Collapse>
+      </Navbar>
     <Container className="mt-4">
           <div className="header">
             <h1 className="text-center">Disciplinas oferecidades</h1>
