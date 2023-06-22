@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Container, Form, FormControl, Table, Navbar, Nav } from "react-bootstrap";
+import { Container, Form, FormControl, Table,Button } from "react-bootstrap";
 import './App.css';
+import  BasicExample from "./Menu";
+import  GridExample from "./Groups";
 
 const disciplines = [
   {
@@ -126,11 +128,10 @@ const disciplines = [
   },
 ];
 
-
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [disciplinesPerPage] = useState(5);
+  const [disciplinesPerPage] = useState(10);
 
   // Filtro
   const filteredDisciplines = disciplines.filter((discipline) =>
@@ -151,79 +152,64 @@ const App = () => {
 
   return (
     <div>
-    <Navbar bg="dark" variant="dark" expand="md" sticky="top">
-      <Navbar.Brand href="#">Top navbar</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarCollapse" />
-      <Navbar.Collapse id="navbarCollapse">
-        <Nav className="mr-auto">
-          <Nav.Link href="#">Home</Nav.Link>
-          <Nav.Link href="#">Link</Nav.Link>
-          <Nav.Link disabled href="#">Desativado</Nav.Link>
-        </Nav>
-        <Form inline>
+      <BasicExample></BasicExample>
+      <Container className="mt-4">
+        <div className="header">
+          <h1 className="text-center">Disciplinas oferecidades</h1>
+        </div>
+        <Form className="mb-3">
           <FormControl
             type="text"
-            placeholder="Pesquisa"
+            placeholder="Filtrar disciplina"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Button variant="outline-success">Pesquisar</Button>
         </Form>
-        </Navbar.Collapse>
-      </Navbar>
-    <Container className="mt-4">
-          <div className="header">
-            <h1 className="text-center">Disciplinas oferecidades</h1>
-          </div>
-      <Form className="mb-3">
-        <FormControl
-          type="text"
-          placeholder="Filtrar disciplina"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </Form>
 
-      <Table striped bordered hover >
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Code</th>
-            <th>Professor</th>
-            <th>Capacity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentDisciplines.map((discipline) => (
-            <tr key={discipline.code}>
-              <td>{discipline.name}</td>
-              <td>{discipline.code}</td>
-              <td>{discipline.professor}</td>
-              <td>{discipline.capacity}</td>
+        <Table striped bordered hover >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Code</th>
+              <th>Professor</th>
+              <th>Instituto</th>
+              <th>Info</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {currentDisciplines.map((discipline) => (
+              <tr key={discipline.code}>
+                <td>{discipline.name}</td>
+                <td>{discipline.code}</td>
+                <td>{discipline.professor}</td>
+                <td>IMECC</td>                
+                <td justi><Button variant="info" >View Groups</Button>{' '}</td>
+                
+              </tr>
+            ))}
+          </tbody>
+        </Table>
 
-      <nav>
-        <ul className="pagination">
-          {[...Array(Math.ceil(filteredDisciplines.length / disciplinesPerPage)).keys()].map(
-            (pageNumber) => (
-              <li
-                key={pageNumber}
-                className={`page-item ${
-                  pageNumber + 1 === currentPage ? "active" : ""
-                }`}
-              >
-                <button className="page-link" onClick={() => paginate(pageNumber + 1)}>
-                  {pageNumber + 1}
-                </button>
-              </li>
-            )
-          )}
-        </ul>
-      </nav>
-    </Container>
+        <nav>
+          <ul className="pagination">
+            {[...Array(Math.ceil(filteredDisciplines.length / disciplinesPerPage)).keys()].map(
+              (pageNumber) => (
+                <li
+                  key={pageNumber}
+                  className={`page-item ${pageNumber + 1 === currentPage ? "active" : ""
+                    }`}
+                >
+                  <button className="page-link" onClick={() => paginate(pageNumber + 1)}>
+                    {pageNumber + 1}
+                  </button>
+                </li>
+              )
+            )}
+          </ul>
+        </nav>
+        <GridExample></GridExample>
+      </Container>
+    </div>
   );
 };
 
