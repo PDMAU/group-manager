@@ -10,7 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-const CLIENT_ID = "add google api client add";
+const CLIENT_ID =
+  "667400231441-lbr2v79la1ieijrjmv0brf8hglh2kufn.apps.googleusercontent.com";
 
 ReactDOM.render(
   <GoogleOAuthProvider clientId={CLIENT_ID}>
