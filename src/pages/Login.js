@@ -7,6 +7,7 @@ const Login = ({ setLogin }) => {
 
   const handleLoginSuccess = (cred) => {
     setLogin({ login: cred });
+    console.log(cred);
     navigate("/home");
   };
 
