@@ -7,64 +7,53 @@ import "./Sidebarmenu.css";
 
 function SidebarMenu({ logout, profile }) {
   return (
-    <div className="bg-dark col-auto col-md-1 min-vh-100 d-flex justify-content-between flex-column">
+    <div className="bg-dark col-auto col-md-2 min-vh-100 d-flex justify-content-between flex-column">
       <div>
-        <a className="text-decoration-none text-white d-none d-sm-inline d-flex align-itemcenter ms-3 mt-3">
-          <span className="ms-1 fs-4 d-none d-sm-inline">Brand</span>
+        <a className='text-decoration-none text-white d-none d-sm-inline d-flex align-itemcenter ms-3 mt-3'>
+          <span className='ms-1 fs-4 d-none d-sm-inline'>Gerenciador</span>
         </a>
-        <hr className="text-secondary d-none d-sm-block" />
-        <ul className="nav nav-pills flex-column mt-3 mt-sm-0">
-          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a
-              href="#"
-              className="nav-link text-white fs-5"
-              aria-current="page"
-            >
-              <i className="bi bi-speedometer2"></i>
-              <span className="ms-3 d-none d-sm-inline">Dashboard</span>
+        <hr className='text-secondary d-none d-sm-block' />
+        <ul class="nav nav-pills flex-column mt-3 mt-sm-0">
+          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+              <i className='bi bi-speedometer2'></i>
+              <span className='ms-3 d-none d-sm-inline'>Universidade</span>
             </a>
           </li>
-          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a
-              href="#"
-              className="nav-link text-white fs-5"
-              aria-current="page"
-            >
-              <i className="bi bi-house"></i>
-              <span className="ms-3 d-none d-sm-inline">Home</span>
+          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+              <i className='bi bi-house'></i>
+              <span className='ms-3 d-none d-sm-inline'>Esportes</span>
             </a>
           </li>
-          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a
-              href="#"
-              className="nav-link text-white fs-5"
-              aria-current="page"
-            >
-              <i className="bi bi-table"></i>
-              <span className="ms-3 d-none d-sm-inline">Orders</span>
+          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+              <i className='bi bi-table'></i>
+              <span className='ms-3 d-none d-sm-inline'>Estudos</span>
             </a>
           </li>
-          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a
-              href="#"
-              className="nav-link text-white fs-5"
-              aria-current="page"
-            >
-              <i className="bi bi-grid"></i>
-              <span className="ms-3 d-none d-sm-inline">Products</span>
+          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+              <i className='bi bi-grid'></i>
+              <span className='ms-3 d-none d-sm-inline'>Games</span>
             </a>
           </li>
-          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a
-              href="#"
-              className="nav-link text-white fs-5"
-              aria-current="page"
-            >
-              <i className="bi bi-people"></i>
-              <span className="ms-3 d-none d-sm-inline">Costumers</span>
+          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+              <i className='bi bi-people'></i>
+              <span className='ms-3 d-none d-sm-inline'>Festas</span>
+            </a>
+          </li>
+          <hr className='text-secondary d-none d-sm-block' />
+
+          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+              <i className='bi bi-plus-circle'></i>
+              <span className='ms-3 d-none d-sm-inline'>Novo Grupo</span>
             </a>
           </li>
         </ul>
+
       </div>
       <div className="dropdown open">
         <a
