@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Form, FormControl, Card, Col, Row } from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import SidebarMenu from "../components/Menu/SidebarMenu";
 
@@ -11,7 +12,7 @@ const disciplines = disciplines_data;
 const Home = ({ logout, profile }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [disciplinesPerPage] = useState(12);
+  const [disciplinesPerPage] = useState(18);
   // Filtro
   const filteredDisciplines = disciplines.filter(
     (discipline) =>
@@ -30,11 +31,29 @@ const Home = ({ logout, profile }) => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
 
-  const getImageSrc = (groupType) => {
+    const getHeader = (groupType) => {
+      if (groupType === "WHATSAPP") {
+        return (
+          <span>
+            <i className="bi bi-whatsapp"></i> Whatsapp
+          </span>
+        );
+      } else if (groupType === "DISCORD") {
+        return (
+          <span>
+            <i className="bi bi-discord"></i> Discord
+          </span>
+        );
+      }
+      // Defina aqui o valor padrão ou uma lógica para outras opções de groupType
+      return null;
+    };
+
+  const getCardType = (groupType) => {
     if (groupType === "WHATSAPP") {
-      return "https://cdn-icons-png.flaticon.com/512/124/124034.png";
+      return "h-100 text-bg-whatsapp";
     } else if (groupType === "DISCORD") {
-      return "https://logosmarcas.net/wp-content/uploads/2020/11/Discord-Emblema.jpg";
+      return "h-100 text-bg-discord";
     }
     // Defina aqui o valor padrão ou uma lógica para outras opções de groupType
     return "";
@@ -48,7 +67,7 @@ const Home = ({ logout, profile }) => {
         <div className="col-auto col-md-10 min-vh-100 d-flex justify-content-between flex-column">
           <Container className="mt-4">
             <div className="header">
-              <h1 className="text-center">Grupos disponíveis</h1>
+              <h1 className="text-center">Grupos da Universidade</h1>
             </div>
             <Form className="mb-3">
               <FormControl
@@ -62,19 +81,14 @@ const Home = ({ logout, profile }) => {
             <Row xs={1} md={6} lg={6} className="g-4">
               {currentDisciplines.map((discipline, idx) => (
                 <Col key={idx}>
-                  <Card className="h-100">
+                  <Card className={getCardType(discipline.groupType)}>
                     <div className="d-flex align-items-center justify-content-center">
-                      <Card.Img
-                        variant="top"
-                        width={64}
-                        height={150}
-                        src={getImageSrc(discipline.groupType)}
-                        fluid
-                      />
+                      <Card.Header                        
+                      >{getHeader(discipline.groupType)}</Card.Header>
                     </div>
                     <Card.Body>
-                      <Card.Title>{discipline.name}</Card.Title>
-                      <Card.Text>{discipline.desc}</Card.Text>
+                      <Card.Title className="d-flex align-items-center justify-content-center">{discipline.name}</Card.Title>
+                      <Card.Text >{discipline.desc}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>

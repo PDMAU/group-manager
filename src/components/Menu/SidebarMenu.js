@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/js/dist/dropdown";
 import React from "react";
 import "./Sidebarmenu.css";
+
 // import Home from "../pages/Home";
 
 function SidebarMenu({ logout, profile }) {
@@ -22,25 +23,25 @@ function SidebarMenu({ logout, profile }) {
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a href="#" class="nav-link text-white fs-5" aria-current="page">
-              <i className='bi bi-house'></i>
+            <i class="bi bi-dribbble"></i>
               <span className='ms-3 d-none d-sm-inline'>Esportes</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a href="#" class="nav-link text-white fs-5" aria-current="page">
-              <i className='bi bi-table'></i>
+            <i class="bi bi-book"></i>
               <span className='ms-3 d-none d-sm-inline'>Estudos</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a href="#" class="nav-link text-white fs-5" aria-current="page">
-              <i className='bi bi-grid'></i>
+              <i class="bi bi-controller"></i>
               <span className='ms-3 d-none d-sm-inline'>Games</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a href="#" class="nav-link text-white fs-5" aria-current="page">
-              <i className='bi bi-people'></i>
+            <i class="bi bi-music-note-beamed"></i>
               <span className='ms-3 d-none d-sm-inline'>Festas</span>
             </a>
           </li>

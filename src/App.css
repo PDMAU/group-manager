@@ -2,7 +2,8 @@
 .filtro {
   width: 100%;
   max-width: 900px;
-  height: 45px; /* Altura desejada */
+  height: 45px;
+  /* Altura desejada */
   margin: 0 auto;
   border-radius: 20px;
   padding: 10px 20px;
@@ -49,4 +50,30 @@
 
 .page-link:focus {
   box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.5);
+}
+
+.card-title {
+  margin-bottom: var(--bs-card-title-spacer-y);
+  color: var(--bs-card-title-color);
+  font-size: 16px !important;
+}
+
+.card-body {
+  font-size: 14px;
+  text-align: center;
+}
+
+.text-bg-whatsapp {
+  color: #fff !important;
+  background-color: #2cef65 !important;
+}
+
+.text-bg-discord {
+  color: #fff !important;
+  background-color: #5865F2 !important;
+}
+
+.card-header {
+  width: 100%;
+  text-align: center;
 }
