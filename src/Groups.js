@@ -1,6 +1,6 @@
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 function GridExample() {
   return (
@@ -8,7 +8,13 @@ function GridExample() {
       {Array.from({ length: 10 }).map((_, idx) => (
         <Col key={idx}>
           <Card>
-            <Card.Img variant="top" width={64} height={200} src="https://cdn-icons-png.flaticon.com/512/124/124034.png"  fluid/>
+            <Card.Img
+              variant="top"
+              width={64}
+              height={200}
+              src="https://cdn-icons-png.flaticon.com/512/124/124034.png"
+              fluid="true"
+            />
             <Card.Body>
               <Card.Title>Sala MC102</Card.Title>
               <Card.Text>

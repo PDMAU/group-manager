@@ -1,20 +1,17 @@
-import { useState, useEffect } from "react";
-import { Container, Form, FormControl, Table, Button } from "react-bootstrap";
+import { useState } from "react";
+import { Container, Form, FormControl } from "react-bootstrap";
 
-
-import { useNavigate } from "react-router-dom";
 import GridExample from "../Groups";
+import SidebarMenu from "../components/Menu/SidebarMenu";
 
 import { disciplines_data } from "../mock/disciplines_data";
 
 const disciplines = disciplines_data;
 
-const Home = ({ login }) => {
+const Home = ({ logout, profile }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [disciplinesPerPage] = useState(10);
-
-  const navigate = useNavigate();
 
   // Filtro
   const filteredDisciplines = disciplines.filter(
@@ -33,28 +30,25 @@ const Home = ({ login }) => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  useEffect(() => {
-    // if (!login) {
-    //   navigate("/login");
-    // } else {
-    // }
-  }, []);
-
   return (
-    <Container className="mt-4">      
-      <div className="header">
-        <h1 className="text-center">Grupos disponiveis</h1>
+    <div className="container-fluid">
+      <div className="row">
+        <SidebarMenu logout={logout} profile={profile} />
+        <div className="col-auto col-md-10 min-vh-100 d-flex justify-content-between flex-column">
+          <Container className="mt-3">
+            <Form className="mb-3">
+              <FormControl
+                type="text"
+                placeholder="Filtrar grupos"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </Form>
+            <GridExample></GridExample>
+          </Container>
+        </div>
       </div>
-      <Form className="mb-3">
-        <FormControl
-          type="text"
-          placeholder="Filtrar grupos"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </Form>
-      <GridExample></GridExample>
-    </Container>
+    </div>
   );
 };
 

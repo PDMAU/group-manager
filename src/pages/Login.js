@@ -1,22 +1,13 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
 
-const Login = ({ setLogin }) => {
+const Login = ({ login, profile }) => {
   const navigate = useNavigate();
-
-  const handleLoginSuccess = (cred) => {
-    setLogin({ login: cred });
-    console.log(cred);
-    navigate("/home");
-  };
-
-  const handleLoginFailed = () => {
-    console.log("Login error");
-  };
-
-  return (
-    <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginFailed} />
+  return profile ? (
+    navigate("/home")
+  ) : (
+    <div>
+      <button onClick={() => login()}>Sign in with Google 🚀</button>
+    </div>
   );
 };
 

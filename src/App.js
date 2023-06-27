@@ -1,25 +1,75 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./App.css";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
-import Login from "./pages/Login";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import Home from "./pages/Home";
-import  SidebarMenu from "./pages/Menu";
+import Login from "./pages/Login";
 
 const App = () => {
-  const [login, setLogin] = useState(false);
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  const logout = () => {
+    googleLogout();
+    setUser(null);
+    setProfile(null);
+    localStorage.removeItem("user");
+    localStorage.removeItem("profile");
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setProfile(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (profile) {
+      localStorage.setItem("profile", JSON.stringify(profile));
+      navigate("/home");
+    }
+  }, [profile]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    if (user) {
+      setUser(user);
+    }
+    if (profile) {
+      setProfile(user);
+    }
+  }, []);
+
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/login" replace={true} />} />
-          <Route path="login" element={<Login setLogin={setLogin} />} />
-          <Route path="home" element={<Home login={login} />} />
-          <Route path="menu" element={<SidebarMenu />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Routes>
+      <Route path="login" element={<Login login={login} profile={profile} />} />
+      <Route path="home" element={<Home logout={logout} profile={profile} />} />
+    </Routes>
   );
 };
 
