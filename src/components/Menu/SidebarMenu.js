@@ -1,12 +1,26 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/js/dist/dropdown";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebarmenu.css";
-
+import GroupModal from '../Modal/AddGroupModal';
 // import Home from "../pages/Home";
 
 function SidebarMenu({ logout, profile }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  useEffect(() => {
+    // Atualiza o componente Example sempre que showModal mudar
+  }, [showModal]);
+  
   return (
     <div className="bg-dark col-auto col-md-2 min-vh-100 d-flex justify-content-between flex-column">
       <div>
@@ -48,7 +62,7 @@ function SidebarMenu({ logout, profile }) {
           <hr className='text-secondary d-none d-sm-block' />
 
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page" onClick={handleOpenModal}>
               <i className='bi bi-plus-circle'></i>
               <span className='ms-3 d-none d-sm-inline'>Novo Grupo</span>
             </a>
@@ -76,6 +90,7 @@ function SidebarMenu({ logout, profile }) {
           </a>
         </div>
       </div>
+      <GroupModal showModal={showModal} handleCloseModal={handleCloseModal} />
     </div>
   );
 }
