@@ -6,6 +6,7 @@ export const disciplines_data = [
     capacity: 50,
     desc: "Estudo dos processos e técnicas para elicitação e análise de requisitos.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Probabilidade",
@@ -14,6 +15,7 @@ export const disciplines_data = [
     capacity: 40,
     desc: "Estudo dos fundamentos da teoria das probabilidades.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Desenvolvimento Web",
@@ -22,6 +24,7 @@ export const disciplines_data = [
     capacity: 60,
     desc: "Aprendizado de técnicas e tecnologias para desenvolvimento de aplicações web.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Análise de Algoritmos",
@@ -30,6 +33,7 @@ export const disciplines_data = [
     capacity: 40,
     desc: "Estudo da análise e eficiência de algoritmos.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Gestão de Projetos",
@@ -38,6 +42,7 @@ export const disciplines_data = [
     capacity: 40,
     desc: "Aprendizado de técnicas e práticas de gestão de projetos.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Programação Orientada a Objetos",
@@ -46,6 +51,7 @@ export const disciplines_data = [
     capacity: 50,
     desc: "Aprendizado de conceitos e práticas de programação orientada a objetos.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Calculo 3",
@@ -54,6 +60,7 @@ export const disciplines_data = [
     capacity: 120,
     desc: "Continuação do estudo de cálculo diferencial e integral em três dimensões.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Engenharia de Software",
@@ -62,6 +69,7 @@ export const disciplines_data = [
     capacity: 80,
     desc: "Estudo de métodos e práticas para desenvolvimento de software.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Sistemas Distribuídos",
@@ -70,6 +78,7 @@ export const disciplines_data = [
     capacity: 70,
     desc: "Estudo de sistemas distribuídos e suas tecnologias.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Banco de Dados",
@@ -78,6 +87,7 @@ export const disciplines_data = [
     capacity: 50,
     desc: "Introdução aos conceitos e técnicas de banco de dados.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Redes de Computadores",
@@ -86,6 +96,7 @@ export const disciplines_data = [
     capacity: 70,
     desc: "Fundamentos e protocolos de redes de computadores.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Estrutura de Dados",
@@ -94,6 +105,7 @@ export const disciplines_data = [
     capacity: 60,
     desc: "Estudo das estruturas de dados e algoritmos relacionados.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Lógica para Computação",
@@ -102,6 +114,7 @@ export const disciplines_data = [
     capacity: 80,
     desc: "Introdução aos princípios e métodos da lógica matemática.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Projetos",
@@ -110,6 +123,7 @@ export const disciplines_data = [
     capacity: 50,
     desc: "Disciplina sobre gerenciamento de projetos de software.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Arquitetura de Computadores",
@@ -118,6 +132,7 @@ export const disciplines_data = [
     capacity: 80,
     desc: "Estudo dos princípios e componentes da arquitetura de computadores.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Segurança da Informação",
@@ -126,6 +141,7 @@ export const disciplines_data = [
     capacity: 60,
     desc: "Introdução aos princípios e técnicas de segurança da informação.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Compiladores",
@@ -134,6 +150,7 @@ export const disciplines_data = [
     capacity: 80,
     desc: "Estudo dos princípios e técnicas de construção de compiladores.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Computação Gráfica",
@@ -142,6 +159,7 @@ export const disciplines_data = [
     capacity: 70,
     desc: "Aprendizado de técnicas para geração e manipulação de gráficos por computador.",
     groupType: "DISCORD",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Inteligência Artificial",
@@ -150,6 +168,7 @@ export const disciplines_data = [
     capacity: 40,
     desc: "Estudo de técnicas e algoritmos para desenvolver sistemas inteligentes.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
   {
     name: "Sistemas Operacionais",
@@ -158,5 +177,6 @@ export const disciplines_data = [
     capacity: 60,
     desc: "Estudo dos princípios e funcionamento de sistemas operacionais.",
     groupType: "WHATSAPP",
+    link: "https://discord.gg/ayxBVxxx",
   },
 ];
