@@ -15,7 +15,7 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 const CLIENT_ID =
-  "667400231441-lbr2v79la1ieijrjmv0brf8hglh2kufn.apps.googleusercontent.com";
+  "785518143067-agqh37g10jmpi5c6c30cp23rd6odt67g.apps.googleusercontent.com";
 
 root.render(
   <GoogleOAuthProvider clientId={CLIENT_ID}>
