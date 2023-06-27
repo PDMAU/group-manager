@@ -16,7 +16,7 @@ function SidebarMenu({ logout, profile }) {
         <ul class="nav nav-pills flex-column mt-3 mt-sm-0">
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a href="#" class="nav-link text-white fs-5" aria-current="page">
-              <i className='bi bi-speedometer2'></i>
+              <i className='bi bi-bank'></i>
               <span className='ms-3 d-none d-sm-inline'>Universidade</span>
             </a>
           </li>

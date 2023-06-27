@@ -10,13 +10,25 @@ const disciplines = disciplines_data;
 
 const Home = ({ logout, profile }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [disciplinesPerPage] = useState(12);
   // Filtro
   const filteredDisciplines = disciplines.filter(
     (discipline) =>
       discipline.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       discipline.code.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+    // Paginação
+    const indexOfLastDiscipline = currentPage * disciplinesPerPage;
+    const indexOfFirstDiscipline = indexOfLastDiscipline - disciplinesPerPage;
+    const currentDisciplines = filteredDisciplines.slice(
+      indexOfFirstDiscipline,
+      indexOfLastDiscipline
+    );
+  
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  
 
   const getImageSrc = (groupType) => {
     if (groupType === "WHATSAPP") {
@@ -48,7 +60,7 @@ const Home = ({ logout, profile }) => {
               />
             </Form>
             <Row xs={1} md={6} lg={6} className="g-4">
-              {filteredDisciplines.map((discipline, idx) => (
+              {currentDisciplines.map((discipline, idx) => (
                 <Col key={idx}>
                   <Card className="h-100">
                     <div className="d-flex align-items-center justify-content-center">
@@ -68,6 +80,23 @@ const Home = ({ logout, profile }) => {
                 </Col>
               ))}
             </Row>
+            <nav>
+              <ul className="pagination">
+                {[...Array(Math.ceil(filteredDisciplines.length / disciplinesPerPage)).keys()].map(
+                  (pageNumber) => (
+                    <li
+                      key={pageNumber}
+                      className={`page-item ${pageNumber + 1 === currentPage ? "active" : ""
+                        }`}
+                    >
+                      <button className="page-link" onClick={() => paginate(pageNumber + 1)}>
+                        {pageNumber + 1}
+                      </button>
+                    </li>
+                  )
+                )}
+              </ul>
+            </nav>
           </Container>
         </div>
       </div>
