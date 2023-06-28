@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-const GroupModal = ({ showModal }) => {
+const GroupModal = ({ showModal, handleCloseModalPai}) => {
   const [lgShow, setLgShow] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
@@ -26,6 +26,7 @@ const GroupModal = ({ showModal }) => {
   const handleCloseModal = () => {
     setLgShow(false);
     setShowAdditionalFields(false);
+    handleCloseModalPai(false);
   };
 
   return (

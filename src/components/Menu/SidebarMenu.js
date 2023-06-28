@@ -4,9 +4,8 @@ import "bootstrap/js/dist/dropdown";
 import React, { useState, useEffect } from "react";
 import "./Sidebarmenu.css";
 import GroupModal from '../Modal/AddGroupModal';
-// import Home from "../pages/Home";
 
-function SidebarMenu({ logout, profile }) {
+const SidebarMenu = ({ logout, profile, onCategoriaChange }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -21,6 +20,10 @@ function SidebarMenu({ logout, profile }) {
     // Atualiza o componente Example sempre que showModal mudar
   }, [showModal]);
   
+  const handleCategoriaChange = (categoria) => {
+    onCategoriaChange(categoria);
+  };
+
   return (
     <div className="bg-dark col-auto col-md-2 min-vh-100 d-flex justify-content-between flex-column">
       <div>
@@ -30,31 +33,31 @@ function SidebarMenu({ logout, profile }) {
         <hr className='text-secondary d-none d-sm-block' />
         <ul class="nav nav-pills flex-column mt-3 mt-sm-0">
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page" onClick={() => handleCategoriaChange("Universidade")}>
               <i className='bi bi-bank'></i>
               <span className='ms-3 d-none d-sm-inline'>Universidade</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page" onClick={() => handleCategoriaChange("Esportes")}>
             <i class="bi bi-dribbble"></i>
               <span className='ms-3 d-none d-sm-inline'>Esportes</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page" onClick={() => handleCategoriaChange("Estudos")}>
             <i class="bi bi-book"></i>
               <span className='ms-3 d-none d-sm-inline'>Estudos</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page" onClick={() => handleCategoriaChange("Games")}>
               <i class="bi bi-controller"></i>
               <span className='ms-3 d-none d-sm-inline'>Games</span>
             </a>
           </li>
           <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
-            <a href="#" class="nav-link text-white fs-5" aria-current="page">
+            <a href="#" class="nav-link text-white fs-5" aria-current="page" onClick={() => handleCategoriaChange("Festas")}>
             <i class="bi bi-music-note-beamed"></i>
               <span className='ms-3 d-none d-sm-inline'>Festas</span>
             </a>
@@ -90,7 +93,7 @@ function SidebarMenu({ logout, profile }) {
           </a>
         </div>
       </div>
-      <GroupModal showModal={showModal} handleCloseModal={handleCloseModal} />
+      <GroupModal showModal={showModal} handleCloseModalPai={handleCloseModal} />
     </div>
   );
 }

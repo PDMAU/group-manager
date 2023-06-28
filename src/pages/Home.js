@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Form, FormControl, Card, Col, Row } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -13,12 +13,19 @@ const Home = ({ logout, profile }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [disciplinesPerPage] = useState(18);
-  // Filtro
-  const filteredDisciplines = disciplines.filter(
-    (discipline) =>
-      discipline.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      discipline.code.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Universidade");
+  const [filteredDisciplines, setFilteredDisciplines] = useState([]);
+
+  // Filtrar disciplinas com base na categoria selecionada
+  useEffect(() => {
+    const filtered = disciplines.filter(
+      (discipline) =>
+        (discipline.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          discipline.code.toLowerCase().includes(searchTerm.toLowerCase())) &&
+        discipline.category.toLowerCase() === categoriaSelecionada.toLowerCase()
+    );
+    setFilteredDisciplines(filtered);
+  }, [searchTerm, categoriaSelecionada]);
 
   // Paginação
   const indexOfLastDiscipline = currentPage * disciplinesPerPage;
@@ -62,14 +69,18 @@ const Home = ({ logout, profile }) => {
     window.open(link, "_blank");
   };
 
+  const handleMudarCategoria = (categoria) => {
+    setCategoriaSelecionada(categoria);
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
-        <SidebarMenu logout={logout} profile={profile} />
+        <SidebarMenu logout={logout} profile={profile} onCategoriaChange={handleMudarCategoria} />
         <div className="col-auto col-md-10 min-vh-100 d-flex justify-content-between flex-column">
           <Container className="mt-4">
             <div className="header">
-              <h1 className="text-center">Grupos da Universidade</h1>
+              <h1 className="text-center">{categoriaSelecionada}</h1>
             </div>
             <Form className="mb-3">
               <FormControl
@@ -106,9 +117,8 @@ const Home = ({ logout, profile }) => {
                   (pageNumber) => (
                     <li
                       key={pageNumber}
-                      className={`page-item ${
-                        pageNumber + 1 === currentPage ? "active" : ""
-                      }`}
+                      className={`page-item ${pageNumber + 1 === currentPage ? "active" : ""
+                        }`}
                     >
                       <button
                         className="page-link"
