@@ -1,6 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 import "./App.css";
@@ -20,9 +19,7 @@ const CLIENT_ID =
 root.render(
   <GoogleOAuthProvider clientId={CLIENT_ID}>
     <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </React.StrictMode>
   </GoogleOAuthProvider>
 );

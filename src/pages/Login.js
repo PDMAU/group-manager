@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/auth";
 
-const Login = ({ login, profile }) => {
-  const navigate = useNavigate();
-  return profile ? (
-    navigate("/home")
-  ) : (
+const Login = () => {
+  const context = useAuth();
+  return (
     <div>
-      <button onClick={() => login()}>Sign in with Google 🚀</button>
+      <button onClick={() => context.login()}>Sign in with Google 🚀</button>
     </div>
   );
 };

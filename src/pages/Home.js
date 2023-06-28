@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Container, Form, FormControl, Card, Col, Row } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import React, { useEffect, useState } from "react";
+import { Card, Col, Container, Form, FormControl, Row } from "react-bootstrap";
 
 import SidebarMenu from "../components/Menu/SidebarMenu";
 
-import { disciplines_data } from "../mock/disciplines_data";
 import "../App.css";
+import { disciplines_data } from "../mock/disciplines_data";
 
 const disciplines = disciplines_data;
 
-const Home = ({ logout, profile }) => {
+const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [disciplinesPerPage] = useState(18);
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Universidade");
+  const [categoriaSelecionada, setCategoriaSelecionada] =
+    useState("Universidade");
   const [filteredDisciplines, setFilteredDisciplines] = useState([]);
 
   // Filtrar disciplinas com base na categoria selecionada
@@ -76,7 +77,7 @@ const Home = ({ logout, profile }) => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <SidebarMenu logout={logout} profile={profile} onCategoriaChange={handleMudarCategoria} />
+        <SidebarMenu onCategoriaChange={handleMudarCategoria} />
         <div className="col-auto col-md-10 min-vh-100 d-flex justify-content-between flex-column">
           <Container className="mt-4">
             <div className="header">
@@ -99,7 +100,9 @@ const Home = ({ logout, profile }) => {
                     onClick={() => handleCardClick(discipline.link)}
                   >
                     <div className="d-flex align-items-center justify-content-center">
-                      <Card.Header>{getHeader(discipline.groupType)}</Card.Header>
+                      <Card.Header>
+                        {getHeader(discipline.groupType)}
+                      </Card.Header>
                     </div>
                     <Card.Body>
                       <Card.Title className="d-flex align-items-center justify-content-center">
@@ -113,22 +116,25 @@ const Home = ({ logout, profile }) => {
             </Row>
             <nav>
               <ul className="pagination">
-                {[...Array(Math.ceil(filteredDisciplines.length / disciplinesPerPage)).keys()].map(
-                  (pageNumber) => (
-                    <li
-                      key={pageNumber}
-                      className={`page-item ${pageNumber + 1 === currentPage ? "active" : ""
-                        }`}
+                {[
+                  ...Array(
+                    Math.ceil(filteredDisciplines.length / disciplinesPerPage)
+                  ).keys(),
+                ].map((pageNumber) => (
+                  <li
+                    key={pageNumber}
+                    className={`page-item ${
+                      pageNumber + 1 === currentPage ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => paginate(pageNumber + 1)}
                     >
-                      <button
-                        className="page-link"
-                        onClick={() => paginate(pageNumber + 1)}
-                      >
-                        {pageNumber + 1}
-                      </button>
-                    </li>
-                  )
-                )}
+                      {pageNumber + 1}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </nav>
           </Container>
