@@ -78,11 +78,11 @@
   text-align: center;
 }
 
-.card {
+.cardHover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.cardHover:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;

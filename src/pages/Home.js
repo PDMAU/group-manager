@@ -58,9 +58,9 @@ const Home = () => {
 
   const getCardType = (groupType) => {
     if (groupType === "WHATSAPP") {
-      return "h-100 text-bg-whatsapp";
+      return "h-100 text-bg-whatsapp cardHover";
     } else if (groupType === "DISCORD") {
-      return "h-100 text-bg-discord";
+      return "h-100 text-bg-discord cardHover";
     }
     // Defina aqui o valor padrão ou uma lógica para outras opções de groupType
     return "";

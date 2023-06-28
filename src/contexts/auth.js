@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = useGoogleLogin({
     onSuccess: (resp) => handleSuccessLogin(resp),
-    onError: (error) => console.log("Login Failed:", error),
+    onError: (error) => console.log("Login Failed:", error),    
   });
 
   const handleSuccessLogin = (resp) => {

@@ -33,11 +33,11 @@ const SidebarMenu = ({ onCategoriaChange }) => {
           <span className="ms-1 fs-4 d-none d-sm-inline">Gerenciador</span>
         </a>
         <hr className="text-secondary d-none d-sm-block" />
-        <ul class="nav nav-pills flex-column mt-3 mt-sm-0">
-          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+        <ul className="nav nav-pills flex-column mt-3 mt-sm-0">
+          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a
               href="#"
-              class="nav-link text-white fs-5"
+              className="nav-link text-white fs-5"
               aria-current="page"
               onClick={() => handleCategoriaChange("Universidade")}
             >
@@ -45,56 +45,56 @@ const SidebarMenu = ({ onCategoriaChange }) => {
               <span className="ms-3 d-none d-sm-inline">Universidade</span>
             </a>
           </li>
-          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a
               href="#"
-              class="nav-link text-white fs-5"
+              className="nav-link text-white fs-5"
               aria-current="page"
               onClick={() => handleCategoriaChange("Esportes")}
             >
-              <i class="bi bi-dribbble"></i>
+              <i className="bi bi-dribbble"></i>
               <span className="ms-3 d-none d-sm-inline">Esportes</span>
             </a>
           </li>
-          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a
               href="#"
-              class="nav-link text-white fs-5"
+              className="nav-link text-white fs-5"
               aria-current="page"
               onClick={() => handleCategoriaChange("Estudos")}
             >
-              <i class="bi bi-book"></i>
+              <i className="bi bi-book"></i>
               <span className="ms-3 d-none d-sm-inline">Estudos</span>
             </a>
           </li>
-          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a
               href="#"
-              class="nav-link text-white fs-5"
+              className="nav-link text-white fs-5"
               aria-current="page"
               onClick={() => handleCategoriaChange("Games")}
             >
-              <i class="bi bi-controller"></i>
+              <i className="bi bi-controller"></i>
               <span className="ms-3 d-none d-sm-inline">Games</span>
             </a>
           </li>
-          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a
               href="#"
-              class="nav-link text-white fs-5"
+              className="nav-link text-white fs-5"
               aria-current="page"
               onClick={() => handleCategoriaChange("Festas")}
             >
-              <i class="bi bi-music-note-beamed"></i>
+              <i className="bi bi-music-note-beamed"></i>
               <span className="ms-3 d-none d-sm-inline">Festas</span>
             </a>
           </li>
           <hr className="text-secondary d-none d-sm-block" />
 
-          <li class="nav-item text-white fs-4 my-1 py-2 py-sm-0">
+          <li className="nav-item text-white fs-4 my-1 py-2 py-sm-0">
             <a
               href="#"
-              class="nav-link text-white fs-5"
+              className="nav-link text-white fs-5"
               aria-current="page"
               onClick={handleOpenModal}
             >
