@@ -12,6 +12,7 @@ const Login = () => {
         <Col xs lg="2" className="d-grid gap-2 col-6 mx-auto">
           <Card className="disableHover">
             <Card.Header>Entre na sua conta</Card.Header>
+            <Card.Img src="https://www.unicamp.br/unicamp/sites/default/files/styles/large/public/Logo_Unicamp__0.jpg?itok=sO9EjTTS" />
             <Card.Body>
               <Button
                 variant="light"
@@ -29,7 +30,8 @@ const Login = () => {
       <ErrorModal
         showModal={context.showErrorModal}
         setShowModal={context.setShowErrorModal}
-        message={"Somente permito login com email 'dac.unicamp.br'"}
+        errorTitle={"E-mail inválido!"}
+        errorMessage={`Somente permito login com email "@dac.unicamp.br"`}
       />
     </Container>
   );

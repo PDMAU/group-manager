@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-const ErrorModal = ({ showModal, setShowModal, message }) => {
+const ErrorModal = ({ showModal, setShowModal, errorTitle, errorMessage }) => {
   const [show, setShow] = useState(showModal);
 
   useEffect(() => {
@@ -18,9 +18,9 @@ const ErrorModal = ({ showModal, setShowModal, message }) => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="text-danger">Erro</Modal.Title>
+          <Modal.Title className="text-danger">{errorTitle}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{message}</Modal.Body>
+        <Modal.Body>{errorMessage}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Ok
