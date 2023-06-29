@@ -9,10 +9,11 @@ const appName = "GroupManager";
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const login = useGoogleLogin({
     onSuccess: (resp) => handleSuccessLogin(resp),
-    onError: (error) => console.log("Login Failed:", error),    
+    onError: (error) => console.log("Login Failed:", error),
   });
 
   const handleSuccessLogin = (resp) => {
@@ -30,9 +31,14 @@ export const AuthProvider = ({ children }) => {
           },
         }
       )
-      .then((res) => {
-        setUser(res.data);
-        localStorage.setItem(`@${appName}:user`, JSON.stringify(res.data));
+      .then(async (res) => {
+        if (!isValidEmail(res.data)) {
+          logout();
+          setShowErrorModal(true);
+        } else {
+          await setUser(res.data);
+          localStorage.setItem(`@${appName}:user`, JSON.stringify(res.data));
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -43,6 +49,16 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem(`@${appName}:user`);
     localStorage.removeItem(`@${appName}:token`);
+  };
+
+  const isValidEmail = (userData) => {
+    if (
+      !userData ||
+      !userData.hasOwnProperty("hd") ||
+      userData.hd !== "dac.unicamp.br"
+    )
+      return false;
+    return true;
   };
 
   useEffect(() => {
@@ -59,7 +75,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signed: Boolean(user), user, login, logout }}
+      value={{
+        signed: Boolean(user),
+        user,
+        login,
+        logout,
+        showErrorModal,
+        setShowErrorModal,
+      }}
     >
       {children}
     </AuthContext.Provider>
@@ -70,6 +93,5 @@ export default AuthContext;
 
 export function useAuth() {
   const context = useContext(AuthContext);
-
   return context;
 }

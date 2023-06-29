@@ -1,4 +1,5 @@
 import Header from "../components/Header/Header";
+import ErrorModal from "../components/ErrorModal/ErrorModal";
 import { useAuth } from "../contexts/auth";
 import { Card, Col, Container, Button, Row } from "react-bootstrap";
 
@@ -10,7 +11,7 @@ const Login = () => {
       <Row className="flex-column h-75 g-1 justify-content-md-center align-items-center">
         <Col xs lg="2" className="d-grid gap-2 col-6 mx-auto">
           <Card className="disableHover">
-            <Card.Header >Entre na sua conta</Card.Header>
+            <Card.Header>Entre na sua conta</Card.Header>
             <Card.Body>
               <Button
                 variant="light"
@@ -25,6 +26,11 @@ const Login = () => {
           </Card>
         </Col>
       </Row>
+      <ErrorModal
+        showModal={context.showErrorModal}
+        setShowModal={context.setShowErrorModal}
+        message={"Somente permito login com email 'dac.unicamp.br'"}
+      />
     </Container>
   );
 };
